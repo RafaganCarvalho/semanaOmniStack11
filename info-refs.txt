@@ -1,0 +1,20 @@
+Pacotes e funcionalidades utilizadas:
+
+aula5: 
+Back-end:
+	npm install celebrate - Para validação de campos e variáveis
+	npm install jest - Teste e TDD
+	npx jest --init
+	npm install cross-env troca de ambiente de desenvolvimento
+	supertest: npm install supertest -D
+
+	Heroku para Deploy
+	digitalOcean para deploy de apps -> para maiores aplicações
+	Netlify para font-end
+
+Estudos para frente: 
+	ESTLint, Prettier
+	Autenticação JWT
+	Styled Components
+
+	
