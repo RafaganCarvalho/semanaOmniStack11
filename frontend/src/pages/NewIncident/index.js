@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { FiArrowLeft } from 'react-icons/fi';
 
-import api from '../../services/api';
+import { FiArrowLeft } from 'react-icons/fi';
+import logoImg from '../../assets/logo.svg';
 
 import './styles.css';
 
-import logoImg from '../../assets/logo.svg';
+import api from '../../services/api';
 
 export default function NewIncident () {
     const [title, setTitle] = useState('');
@@ -15,6 +15,8 @@ export default function NewIncident () {
 
     const ongId = localStorage.getItem('ongId');
     const history = useHistory();
+
+    console.log(ongId);
 
     async function handleNewIncident (e){
         e.preventDefault();
@@ -26,16 +28,15 @@ export default function NewIncident () {
         };
 
         try{
-            await api.post('incidents', data, {
+            await api.post('incident', data, {
                 headers: {
                     Authorization: ongId,
                 }
             })
-
             history.push('/profile');
         } catch (err){
             console.log(err);
-            alert('Falha no login');
+            alert('Falha no cadastro');
         }
     }
 

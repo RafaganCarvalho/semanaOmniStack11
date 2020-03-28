@@ -10,17 +10,16 @@ import logoImg from '../../assets/logo.svg';
 
 export default function Profile() {
     const [incidents, setIncidents] = useState([]);
-    const ongId = localStorage.getItem('ondId');
+    const ongId = localStorage.getItem('ongId');
     const ongName = localStorage.getItem('ongName');
     const history = useHistory();
 
-    useEffect(() => {
-        api.get('profile', {
-            headers: {
-                Authorization: ongId,
-            }
+    //console.log(ongId +' '+ ongName);
+
+    useEffect(() => { api.get('profile', {
+            headers: { Authorization: ongId }
         }).then(response => {
-            console.log(response.data);
+            //console.log(response.data);
             setIncidents(response.data);
         })
     }, [ongId]);
@@ -52,7 +51,7 @@ export default function Profile() {
                 <img src={logoImg} alt="Be the Hero" />
                 <span>Bem vinda, {ongName}!</span>
 
-                <Link className="button" to="/incidents/new">Cadastrar novo Caso</Link>
+                <Link className="button" to="/incindent/new" > Cadastrar novo Caso </Link>
 
                 <button onClick= {handleLogout} type="button">
                     <FiPower size={18} color="#E02041"/>
